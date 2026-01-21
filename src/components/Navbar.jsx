@@ -11,7 +11,7 @@ export const Navbar = () => {
   const navItems = [
     { path: '/', label: 'Home' },
     { path: '/portfolio', label: 'Skills & Experience' },
-    { path: '/activity', label: 'Activites' },
+    { path: '/activity', label: 'Activities' },
     { path: '/contact', label: 'Contact' },
   ];
 
