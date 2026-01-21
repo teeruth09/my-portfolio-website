@@ -40,9 +40,36 @@ export const Navbar = () => {
             ))}
           </div>
           
-          {/* Mobile Menu ใส่โค้ดส่วน Mobile เหมือนเดิมแต่เปลี่ยน button เป็น Link */}
+          {/* Mobile Toggle */}
+          <button
+            className="md:hidden p-2 rounded-lg hover:bg-gray-100"
+            onClick={() => setIsOpen(!isOpen)}
+          >
+            {isOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
         </div>
       </div>
+      {/* Mobile Menu */}
+      {isOpen && (
+        <div className="md:hidden bg-white border-t border-gray-100">
+          <div className="px-4 py-4 space-y-4">
+            {navItems.map((item) => (
+              <Link
+                key={item.path}
+                href={item.path}
+                onClick={() => setIsOpen(false)}
+                className={`block text-sm font-medium ${
+                  pathname === item.path
+                    ? 'text-blue-600'
+                    : 'text-gray-600 hover:text-blue-600'
+                }`}
+              >
+                {item.label}
+              </Link>
+            ))}
+          </div>
+        </div>
+      )}
     </nav>
   );
 };
